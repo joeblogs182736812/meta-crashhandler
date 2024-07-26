@@ -1,0 +1,9 @@
+[Unit]
+Description=Configure Crash Handler
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/crash_handler --install
+
+[Install]
+WantedBy=multi-user.target

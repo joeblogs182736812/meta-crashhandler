@@ -1,0 +1,16 @@
+--- linux-intel-lts/kernel/ptrace.c	2018-09-05 17:24:42.954804515 -0700
++++ linux-intel-lts-test/kernel/ptrace.c	2018-10-17 15:50:01.609616718 -0700
+@@ -394,9 +394,13 @@
+ 
+ 	ptrace_link(task, current);
+ 
++	if (unlikely(task->mm->core_state)) {
++		task->state = TASK_TRACED;
++	} else {
+ 	/* SEIZE doesn't trap tracee on attach */
+ 	if (!seize)
+ 		send_sig_info(SIGSTOP, SEND_SIG_FORCED, task);
++	}
+ 
+ 	spin_lock(&task->sighand->siglock);
+ 

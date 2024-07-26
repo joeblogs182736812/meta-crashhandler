@@ -1,0 +1,21 @@
+diff -ruNw linux-yocto-4.4-4.4.36-orig/kernel/ptrace.c linux-yocto-4.4-4.4.36/kernel/ptrace.c
+--- linux-yocto-4.4-4.4.36-orig/kernel/ptrace.c	2016-12-02 01:09:18.000000000 -0700
++++ linux-yocto-4.4-4.4.36/kernel/ptrace.c	2017-03-06 10:47:49.836751310 -0700
+@@ -351,9 +351,17 @@
+ 
+ 	__ptrace_link(task, current);
+ 
++    /*
++    * If doing coredump, just convert directly to TASK_TRACED.
++    * A dying process doesn't process signals normally.
++    */
++    if (unlikely(task->mm->core_state)) {
++        set_task_state(task, TASK_TRACED);
++    } else {
+ 	/* SEIZE doesn't trap tracee on attach */
+ 	if (!seize)
+ 		send_sig_info(SIGSTOP, SEND_SIG_FORCED, task);
++    }
+ 
+ 	spin_lock(&task->sighand->siglock);
+ 
