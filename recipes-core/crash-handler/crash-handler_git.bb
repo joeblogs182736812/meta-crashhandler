@@ -7,8 +7,8 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 SRC_URI = "https://github.com/joeblogs182736812/meta-crashhandler;branch=master \
            file://configure-crash-handler.service \
 "
-SRC_URI[md5sum] = "8e322b3ac20f8c7fdd739c62e4da074f"
-SRC_URI[sha256sum] = "dcef18ffc773b1fbb415cdb5d116c7731e18ca71c8a6137e7fa6ba1ce30413ad"
+SRC_URI[md5sum] = "e7cae8678fa6155626f0dbafde054332"
+SRC_URI[sha256sum] = "5bbef1a84982c899cafbb7be02fd3ba9174b917510d7f4175ba6f0901ed5540a"
 
 inherit systemd
 
