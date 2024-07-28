@@ -4,11 +4,11 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-SRC_URI = "https://github.com/joeblogs182736812/crash-handler;branch=master \
+SRC_URI = "git://github.com/joeblogs182736812/crash-handler;branch=master;protocol=https \
            file://configure-crash-handler.service \
 "
-SRC_URI[md5sum] = "8e322b3ac20f8c7fdd739c62e4da074f"
-SRC_URI[sha256sum] = "dcef18ffc773b1fbb415cdb5d116c7731e18ca71c8a6137e7fa6ba1ce30413ad"
+
+BB_STRICT_CHECKSUM = "0"
 
 inherit systemd
 
