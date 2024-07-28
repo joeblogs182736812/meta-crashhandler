@@ -4,7 +4,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-SRC_URI = "https://github.com/joeblogs182736812/meta-crashhandler;branch=master \
+SRC_URI = "git://github.com/joeblogs182736812/meta-crashhandler;branch=master;protocol=https \
            file://configure-crash-handler.service \
 "
 
